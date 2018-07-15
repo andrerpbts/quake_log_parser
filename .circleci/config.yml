@@ -1,0 +1,42 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.5.1-node
+        environment:
+          RACK_ENV: test
+          RAILS_ENV: test
+          DATABASE_URL: postgres://postgres:@localhost:5432/quake_log_parser_test
+
+      - image: circleci/postgres:9.6.2-alpine
+
+    working_directory: ~/quake_log_parser
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          - v1-dependencies-
+
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      # Database setup
+      - run: cp config/database.sample.yml config/database.yml
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:setup
+
+      # run tests!
+      - run:
+          name: run tests
+          command: |
+            bundle exec rspec --format progress
+            bundle exec rubocop
