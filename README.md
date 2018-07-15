@@ -1,4 +1,5 @@
 # Quake Log Parser
+[![CircleCI](https://circleci.com/gh/andrerpbts/quake_log_parser.svg?style=svg&circle-token=74a357d0cf55989c74cf142f907fd060ae48d1c1)](https://circleci.com/gh/andrerpbts/quake_log_parser)
 
 ## About
 
@@ -27,6 +28,10 @@ Once you have these:
 
     # Start the local web server
     $ rails s
+
+    # Run the test suite
+    $ bundle exec rspec
+    $ bundle exec rubocop
 
 ## License
 
