@@ -33,6 +33,11 @@ Once you have these:
     $ bundle exec rspec
     $ bundle exec rubocop
 
+To manage the API data, access the `/admin` route. The development admin user is:
+
+    # Email: admin@example.com
+    # Password: 123456
+
 ## License
 
 Copyright 2018 - André Rodrigues.
