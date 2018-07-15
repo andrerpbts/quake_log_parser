@@ -5,7 +5,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'activeadmin'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'devise'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rack-cors'
@@ -21,12 +23,13 @@ end
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-byebug'
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', '~> 0.51.0', require: false
 end
 
 group :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails', '~> 4.0'
+  gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 3.1'
 end
