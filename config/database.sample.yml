@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: quake_log_parser_development
+
+test:
+  <<: *default
+  database: quake_log_parser_test
+
+production:
+  <<: *default
+  database: quake_log_parser_production
+  username: quake_log_parser
+  password: <%= ENV['QUAKE_LOG_PARSER_DATABASE_PASSWORD'] %>
