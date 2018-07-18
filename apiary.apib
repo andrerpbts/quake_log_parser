@@ -1,0 +1,129 @@
+FORMAT: 1A
+HOST: https://api.quakeparserlogs.com.br/
+
+# Quake Parser Logs API - V1
+API docs for the Quake Log parser
+
+## Group Game Logs
+
+### Fetch all game logs [GET /v1/game_logs]
+Retrieves all game logs of the given page
+
++ Request (application/json)
+    + Headers
+
+            Content-Type: application/json
+
++ Parameters
+
+    + page (optional) - The page you want display. Default is 1.
+    + per_page (optional) - Records that will be displayed per page. Default is 15.
+
++ Response 200
+    + Headers
+
+            Content-Type: application/json
+
+    + Schema
+
+            {
+              "type": "object",
+              "description": "Array[GameLog]",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "total_kills": {
+                  "type": "integer"
+                },
+                "players": {
+                  "type": "array[string]"
+                },
+                "kills": {
+                  "type": "hash[string => integer"
+                }
+              }
+            }
+
+    + Body
+            [
+                {
+                    "id": 39,
+                    "total_kills": 49,
+                    "players": [
+                      "Dono da Bola",
+                      "Isgalamido",
+                      "Zeh",
+                      "Assasinu Credi"
+                    ],
+                    "kills": {
+                      "Zeh": 12,
+                      "Isgalamido": 8,
+                      "Dono da Bola": 4,
+                      "Assasinu Credi": 5
+                    }
+                },
+                {
+                    "id": 40,
+                    "total_kills": 0,
+                    "players": [
+                      "Isgalamido"
+                    ],
+                    "kills": {
+                      "Isgalamido": 0
+                    }
+                }
+            ]
+
+### Fetch game log [GET /v1/game_logs/:id]
+Retrieves the specified game log
+
++ Request (application/json)
+    + Headers
+
+            Content-Type: application/json
+
++ Response 200
+    + Headers
+
+            Content-Type: application/json
+
+    + Schema
+
+            {
+              "type": "object",
+              "description": "GameLog",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "total_kills": {
+                  "type": "integer"
+                },
+                "players": {
+                  "type": "array[string]"
+                },
+                "kills": {
+                  "type": "hash[string => integer]"
+                }
+              }
+            }
+
+    + Body
+
+            {
+                "id": 39,
+                "total_kills": 49,
+                "players": [
+                  "Dono da Bola",
+                  "Isgalamido",
+                  "Zeh",
+                  "Assasinu Credi"
+                ],
+                "kills": {
+                  "Zeh": 12,
+                  "Isgalamido": 8,
+                  "Dono da Bola": 4,
+                  "Assasinu Credi": 5
+                }
+            }
