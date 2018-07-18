@@ -1,0 +1,13 @@
+<div id="main_content">
+  <div class="panel">
+    <h3>Select file to Upload</h3>
+    <div class="panel_contents">
+      <%= form_tag import_log_admin_game_logs_path, multipart: true do %>
+        <%= file_field_tag "log_file" %>
+        <br />
+        <br />
+        <%= submit_tag 'Import' %>
+      <% end %>
+    </div>
+  </div>
+</div>

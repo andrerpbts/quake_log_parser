@@ -47,4 +47,28 @@ RSpec.describe Admin::GameLogsController, type: :controller do
       expect { game_log.reload }.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
+
+  describe 'GET import_log' do
+    it 'returns http success' do
+      get :import_log
+
+      expect(response).to have_http_status(200)
+    end
+  end
+
+  describe 'POST import_log' do
+    let(:file) { fixture_file_upload('files/games.log') }
+
+    subject(:import) { post :import_log, params: { log_file: file } }
+
+    it 'redirects to admin_game_logs path' do
+      import
+
+      expect(response).to redirect_to(admin_game_logs_path)
+    end
+
+    it 'imports the file' do
+      expect { import }.to change { GameLog.count }.from(0).to(20)
+    end
+  end
 end

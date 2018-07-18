@@ -4,15 +4,15 @@ module QuakeLog
   class Parser
     include Service
 
-    def initialize(file)
-      @file = file
+    def initialize(filename)
+      @filename = filename
       @games = []
     end
 
     def call
-      return [] unless File.exist?(file)
+      return [] unless File.exist?(filename)
 
-      File.open(file, 'r') do |f|
+      File.open(filename, 'r') do |f|
         f.each_line { |line| parse(line) }
       end
 
@@ -36,6 +36,6 @@ module QuakeLog
       games.last
     end
 
-    attr_reader :file, :games
+    attr_reader :filename, :games
   end
 end
