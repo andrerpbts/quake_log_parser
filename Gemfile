@@ -13,6 +13,7 @@ gem 'puma', '~> 3.11'
 gem 'rack-cors'
 gem 'rails', '~> 5.2.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'virtus'
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
