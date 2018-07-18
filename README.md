@@ -38,6 +38,9 @@ To manage the API data, access the `/admin` route. The development admin user is
     # Email: admin@example.com
     # Password: 123456
 
+The API documentation is at project root, in a file named `apiary.apib`. This file is in [API Blueprint](https://apiblueprint.org/) format and
+it's fully compatible with [Apiary](https://apiary.io) service.
+
 ## License
 
 Copyright 2018 - André Rodrigues.
