@@ -27,6 +27,10 @@ Metrics/MethodLength:
   CountComments: false
   Max: 25
 
+Metrics/BlockLength:
+  Exclude:
+    - 'app/admin/**/*'
+
 Naming/PredicateName:
   Enabled: false
 
