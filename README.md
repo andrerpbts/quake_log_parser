@@ -8,7 +8,7 @@ Quake Log parser API for Magazine Luiza test.
 ## Getting Started
 
 First up, your system will need the
-[prerequisites for running Ruby on Rails installed](http://rubyonrails.org/download)
+[prerequisites for running Ruby on Rails installed](http://railsinstaller.org/en)
 
 Once you have these:
 
