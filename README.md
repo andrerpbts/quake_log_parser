@@ -7,8 +7,7 @@ Quake Log parser API for Magazine Luiza test.
 
 ## Getting Started
 
-First up, your system will need the
-[prerequisites for running Ruby on Rails installed](http://railsinstaller.org/en)
+First up, visit [RVM install page](https://rvm.io/rvm/install) and follow the instructions to install ruby on your machine. I'd suggest you to install the `2.5.1` ruby version.
 
 Once you have these:
 
